@@ -1,0 +1,5 @@
+//route - a section of code that associates an HTTP verb and a URL path with a specific handler function that executes when a match is found
+
+//res.json - serialized object
+// sets content type
+//make serialized (obj)
