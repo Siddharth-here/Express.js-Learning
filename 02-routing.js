@@ -50,7 +50,7 @@ function block_1_httpMethods() {
           .json({ error: "Something went wrong nhi bhejna h" });
       routes[id] = { id: Number(id), ...req.body };
     });
-    
+
     app.patch("/routes/:id", (req, res) => {
       const id = req.params.id;
       if (!routes[id])
@@ -63,9 +63,9 @@ function block_1_httpMethods() {
       };
 
       routes[id] = updateRoute;
-      res.JSON({
+      res.json({
         message: "update successfully",
-        data: route[id],
+        data: routes[id],
       });
     });
     app.delete("/routes/:id", (req, res) => {
@@ -84,20 +84,27 @@ function block_1_httpMethods() {
 
       try {
         //TODO
+
+        //GET
         const listRes = await fetch(`${base}/routes`);
         const listData = await listRes.json();
+        console.log("Current Routes:", listData);
 
-        const createRes = await fetch(`${base}/routes`, {
+        //POST
+        const postRes = await fetch(`${base}/routes`, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            body: JSON.stringify({
-              name: "Colaba-Worli",
-              direction: "South",
-            }),
+            "Content-Type": "application/json", // Tells server we are sending JSON
           },
+          body: JSON.stringify({
+
+            name: "Colaba-Worli",
+            direction: "South",
+          }),
         });
-        const created = await createRes.json();
+
+        const createdData = await postRes.json();
+        console.log("Created Route:", createdData);
       } catch (error) {
         console.log(error);
       }
