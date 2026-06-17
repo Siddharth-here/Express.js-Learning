@@ -14,7 +14,7 @@ export const todoValidationSchema = z.object({
 })
 
 //typescript typing on the go with zod which mean whatever we change in the schema it automatically sync 
-export type Todo = z.infer<typeof todoValidationSchema>
+export type Todo = z.infer<typeof todoValidationSchema> //z.infer tells TypeScript to look at the Zod schema above and automatically generate a code type called Todo from it. If you ever add a new field to todoValidationSchema (like a dueDate), your TypeScript code will automatically update everywhere instantly!
 
 
 // //creating schema/ or interface for todo
