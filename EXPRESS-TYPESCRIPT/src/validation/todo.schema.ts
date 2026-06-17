@@ -1,6 +1,11 @@
 import { z } from "zod";
 
 //creating schema/ or interface for todo with zod
+//z.string() - Must be a string
+
+//describe() - explaining what the field is useful for generating API documentation later.
+
+//optional() - optional
 export const todoValidationSchema = z.object({
     id: z.string().describe('ID of the todo'),
     title: z.string().describe('title of the todo'),
