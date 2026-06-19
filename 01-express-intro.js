@@ -36,6 +36,7 @@ function block_1_basicServer() {
     });
 
     const server = app.listen(0, async () => {
+      console.log('server:',server)
       const port = server.address().port;
       const base = `http://127.0.0.1:${port}`;
 
